@@ -24,10 +24,12 @@ class HorizontalPanoramicCamera {
 
 	connectCameraToVideoElement (_camera){
 		var self = _camera;
-		navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+		// let constraints = { video: true, audio: false };		// Generic, Allow user to choose which device
+		let constraints = { video: {facingMode: "environment"}, audio: false } // Test forcing rear camera
+		navigator.mediaDevices.getUserMedia(constraints)
 			.then((_stream) => {
 
-				// Stream data from choosen webcam to Video Element input
+				// Stream data from choosen camera to Video Element input
 		        self.$camera[0].srcObject = _stream;
 		        self.$camera[0].play();
 
@@ -55,12 +57,12 @@ class HorizontalPanoramicCamera {
 			); // Bitmap data source, X, Y, W, H
 		}
 
-		// Ready index for next slice's position
-		self.currentSliceIndex++;
-
 		// Do resizing of canvas (which wipes canvas content :( )
 		canvas.width = camera.videoWidth *(self.currentSliceIndex +1);
 		canvas.height = camera.videoHeight;
+
+		// Ready index for next slice's position
+		self.currentSliceIndex++;
 
 		// Restore backed-up canvas content
 		if (self.currentSliceIndex != 0) {
