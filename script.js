@@ -29,7 +29,7 @@ class HorizontalPanoramicCamera {
 		navigator.mediaDevices.getUserMedia(constraints)
 			.then((_stream) => {
 
-				// Stream data from choosen camera to Video Element input
+				// Stream data from choosen webcam to Video Element input
 		        self.$camera[0].srcObject = _stream;
 		        self.$camera[0].play();
 
