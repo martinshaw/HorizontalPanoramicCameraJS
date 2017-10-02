@@ -1,27 +1,38 @@
-html, body{
-	margin: 0;
-	padding: 0;
-	width: 100%;
-	height: 100%;
-	background: #111;
-}
-
-.camera-container{
-	width: 100%;
-	height: calc(100% - 30px);
-	overflow: auto;
-}
-.camera-video{
-	width: 100%;
-	height: 100%;
-}
-
-.camera-outer-buttons{
-	width: 100%;
-	height: 30px;
-}
-.camera-outer-buttons button{
-	width: 20%;
-	height: 100%;
-	float: left;
+html, body{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	background: #111;
+}
+
+.camera-container{
+	width: 100%;
+	height: calc(100% - 30px); 
+	overflow: auto;
+}
+.camera-video{
+	/*width: 100%;*/
+	/*height: 100%;*/
+	width: auto;
+	height: auto;
+	max-width: 100%;
+}
+.camera-canvas{
+	width: auto;
+	height: auto;
+	position: absolute;
+	right: calc(100% - 50px);
+	top: 0;
+	opacity: .6;
+}
+
+.camera-outer-buttons{
+	width: 100%;
+	height: 30px;
+}
+.camera-outer-buttons button{
+	width: 20%;
+	height: 100%;
+	float: left;
 }
